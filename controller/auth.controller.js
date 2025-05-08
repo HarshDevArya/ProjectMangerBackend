@@ -97,14 +97,26 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.logout = (_, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: true,
-    sameSite: "None",
-    // domain: process.env.COOKIE_DOMAIN,
-  });
-  res.json({ message: "Logged out" });
+/* ---------- logout ---------- */
+exports.logout = (req, res) => {
+  try {
+    /* If there’s no token cookie, user is already logged out */
+    if (!req.cookies?.token) {
+      return res.status(400).json({ message: "Already logged out." });
+    }
+
+    /* Clear the cookie with the same attributes it was set with */
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
+
+    res.json({ message: "Logged out." });
+  } catch (err) {
+    console.error("Logout error:", err);
+    res.status(500).json({ message: "Server error during logout." });
+  }
 };
 
 /* optional: current user */

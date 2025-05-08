@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
     passwordHash: { type: String, required: true },
     bio: { type: String, maxlength: 300 },
     socials: socialSchema,
-    role: { type: String, enum: ["user", "admin"], default: "user" },
+    role: { type: String, enum: ["user"], default: "user" },
   },
   { timestamps: true }
 );
