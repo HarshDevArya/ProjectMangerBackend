@@ -45,6 +45,7 @@ workspace/
 
 ```bash```
 git clone https://github.com/HarshDevArya/ProjectMangerBackend.git
+
 git clone https://github.com/HarshDevArya/ProjectMangerFrontEnd.git
 
 cd ProjectMangerBackend && npm install
@@ -63,7 +64,6 @@ COOKIE_DOMAIN=localhost
 
 # (Optional) Vercel Blob Storage – enable file uploads
 #   1. Create a token in your Vercel project Settings ▸ Storage ▸ “Generate token”
-#   2. Paste it below; leave blank or remove the key to disable uploads
 VERCEL_BLOB_RW_TOKEN=vercel_blob_rw_XXXXXXXXXXXXXXXXXXXXXXXX
 
 # ─── Frontend ──────────────────────────────────────
